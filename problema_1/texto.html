@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+
+		<title> Texto 1 </title>
+
+	</head>
+
+	<body>
+
+
+
+		<p>
+			Na hipótese de infração às obrigações previstas neste Contrato, @o_a Locatári@o_a ficará sujeit@o_a ao pagamento de cláusula penal não-compensatória equivalente ao valor de 3 (três) aluguéis vigentes à época da infração, sem prejuízo de eventuais perdas e danos devidos ao Locador.
+		</p>
+		 
+		<p>
+			Será, ainda, aplicada multa @ao_a Locatári@o_a, caso este infrinja a obrigação de devolver as chaves do Imóvel ao Locador na data do término deste Contrato.
+			Na hipótese de @o_a Locatári@o_a resilir este Contrato antes do término do prazo fixado com o Locador, este poderá exigir daquele o pagamento de cláusula penal compensatória equivalente ao valor de 3 (três) aluguéis vigentes à época da resilição, calculada proporcionalmente ao prazo restante deste Contrato, conforme o art. 4º da Lei n. 8.245/1991.
+		</p>
+		 
+		<p>
+			No caso de mora @do_da Locatári@o_a no pagamento de quaisquer obrigações e/ou penalidades previstas neste Contrato, ser-lhe-ão aplicados os encargos moratórios previstos na Cláusula 3.6.
+		</p>
+
+
+	</body>
+
+	<script>
+
+			var busca_1 = "@o_a";
+			var busca_2 = "@do_da";
+			var busca_3= "@ao_a";
+
+			var strbusca_1 = eval('/'+busca_1+'/g');
+			var strbusca_2 = eval('/'+busca_2+'/g');
+			var strbusca_3 = eval('/'+busca_3+'/g');
+
+			var elements = document.getElementsByTagName('*');
+
+			var genero = prompt ("Genero feminino ou masculino [f/m]?");     
+
+
+			if(genero==="f"){
+
+				for (var i = 0; i < elements.length; i++){
+
+					var txt = elements[i].innerHTML.replace(strbusca_1, "a");
+					elements[i].innerHTML = txt;
+				}
+
+
+				for (var i = 0; i < elements.length; i++){
+					
+					var txt = elements[i].innerHTML.replace(strbusca_2, "da");
+					elements[i].innerHTML = txt;
+				}
+
+
+				for (var i = 0; i < elements.length; i++){
+					
+					var txt = elements[i].innerHTML.replace(strbusca_3, "à");
+					elements[i].innerHTML = txt;
+				}
+
+			}
+			else if(genero==="m"){
+				for (var i = 0; i < elements.length; i++){
+
+					var txt = elements[i].innerHTML.replace(strbusca_1, "o");
+					elements[i].innerHTML = txt;
+				}
+
+
+				for (var i = 0; i < elements.length; i++){
+					
+					var txt = elements[i].innerHTML.replace(strbusca_2, "do");
+					elements[i].innerHTML = txt;
+				}
+
+
+				for (var i = 0; i < elements.length; i++){
+					
+					var txt = elements[i].innerHTML.replace(strbusca_3, "ao");
+					elements[i].innerHTML = txt;
+				}
+			}
+		</script>
+
+	
+
+</html>
