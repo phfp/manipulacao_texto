@@ -7,8 +7,6 @@
 using namespace std;
 
 int main(){
-	
-	int x;
 
 	string palavra;
 	int tamanho;
@@ -22,37 +20,24 @@ int main(){
 	ofstream out("out.txt", ios::trunc);
 
 	in >> palavra;
-	out << palavra << " ";
-	tamanho_disponivel -= palavra.size();
 
 	while (!in.eof()){
 
-		in >> palavra;
-
-		if(palavra.size() <= tamanho_disponivel){
-
-			if(palavra.size()==tamanho_disponivel){
-				out << palavra;
-				//out << endl;
-				tamanho_disponivel = tamanho;
-			}else{
-				out << palavra << " ";
-				tamanho_disponivel = tamanho_disponivel - palavra.size();
-				tamanho_disponivel--;
-			}
-
-		}else if(palavra.size() > tamanho_disponivel){
-			if(palavra.size()>=tamanho){
-				out << endl;
-				out << palavra;
-				out << endl;
-				tamanho_disponivel = tamanho;
-			}else{
-				out << endl;
-				out << palavra << " ";
-				tamanho_disponivel = tamanho - palavra.size();
-			}
+		if(tamanho_disponivel == tamanho)
+		{
+			out << palavra;
+			tamanho_disponivel = tamanho_disponivel - palavra.size();
+		}else if(palavra.size()+1 <= tamanho_disponivel && tamanho_disponivel>0){
+			out << " " << palavra;
+			tamanho_disponivel = (tamanho_disponivel-palavra.size())-1;
+		}else{
+			out << endl;
+			tamanho_disponivel = tamanho;
+			out << palavra;
+			tamanho_disponivel = tamanho - palavra.size();
 		}
+
+		in >> palavra;
 	}
 
    in.close();
