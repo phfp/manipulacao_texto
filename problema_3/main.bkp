@@ -1,0 +1,99 @@
+
+
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+int main(){
+	
+	int x;
+
+	string palavra;
+	int tamanho;
+
+	ifstream in("in.txt");	
+
+	in >> tamanho;
+
+	int tamanho_disponivel = tamanho;
+
+	ofstream out("out.txt", ios::trunc);
+
+	in >> palavra;
+
+	while (!in.eof()){
+
+		if(tamanho_disponivel == tamanho && palavra.size() > tamanho){
+			out << palavra;
+			out << endl;
+		}
+		else if (palavra.size() <= tamanho_disponivel){
+			out << palavra << " ";
+			tamanho_disponivel = tamanho_disponivel - palavra.size();		
+		}
+		else if(palavra.size() > tamanho){
+			out << endl;
+			out << palavra;
+		}
+		else 
+		{
+			out << endl;
+			out << palavra << " ";
+			tamanho_disponivel = tamanho - palavra.size();			
+		}
+		in >> palavra;
+	}
+
+/*
+
+	for(int i=0; i<texto.size() ;){
+
+		int j = i;
+		while(texto[j] != ' '){
+			tam_palavra++;
+			j++;
+		}
+
+
+		if(tam_palavra <= tamanho_disponivel){
+
+			while(texto[i] != ' '){
+				out << texto[i];
+				i++;
+			}
+
+			out << " ";
+
+			tamanho_disponivel = tamanho_disponivel - tam_palavra;
+			tam_palavra = 0;			
+			i++;
+
+		}
+		else{
+			out << endl;
+			out << texto[i];
+			tamanho_disponivel = tamanho-1;
+			tam_palavra = 0;
+			i++;
+		}		
+	}
+
+	if(tamanho > 0){
+			out << texto[i];
+			tamanho--;
+		}
+		else{
+			out << endl;
+			tamanho = 10;
+			i--;
+		}
+	*/
+
+
+
+   in.close();
+
+	return 0;
+}
